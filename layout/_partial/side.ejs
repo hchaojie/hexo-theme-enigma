@@ -1,5 +1,11 @@
+<% if(is_home() || is_category() || is_archive() || is_tag()) {
+    var isPostList = true;
+} else {
+    var isPostList = false;
+} %>
+
 <% if (theme.widgets){ %>
-    <% if (theme.widgets.author.enable){ %>
+    <% if (theme.widgets.author.enable && isPostList){ %>
         <%- partial('../_widget/author') %>
     <% } %>
     <% if (config.widgets){ %>
@@ -28,19 +34,19 @@
         </section>
       <% }) %>
     <% } %>
-    <% if (theme.widgets.categories.enable){ %>
+    <% if (theme.widgets.categories.enable && isPostList){ %>
         <%- partial('../_widget/categories') %>
     <% } %>
-    <% if (theme.widgets.tagcloud.enable){ %>
+    <% if (theme.widgets.tagcloud.enable && isPostList){ %>
         <%- partial('../_widget/tagcloud') %>
     <% } %>
     <% if (theme.widgets.toc.enable){ %>
         <%- partial('../_widget/toc') %>
     <% } %>
-    <% if (theme.widgets.music.enable){ %>
+    <% if (theme.widgets.music.enable && isPostList){ %>
         <%- partial('../_widget/music') %>
     <% } %>
-    <% if (theme.widgets.links.enable){ %>
+    <% if (theme.widgets.links.enable && isPostList){ %>
         <%- partial('../_widget/links') %>
     <% } %>
 <% } %>

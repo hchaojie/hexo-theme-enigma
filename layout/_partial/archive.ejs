@@ -15,6 +15,11 @@
 <section class="post-list">
     <% page.posts.each(function(post){ %>
         <div class='post-wrapper'>
+            <div class="article-cover" style="background-image:url(<%=post.cover%>);">
+                <p class="article-headline-p">
+                    <a href="<%- url_for(post.path) %>"><%=post.title%></a>
+                </p>
+            </div>
             <%- partial('post', {post: post}) %>
         </div>
     <% }) %>

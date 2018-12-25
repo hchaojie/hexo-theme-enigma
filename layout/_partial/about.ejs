@@ -1,0 +1,12 @@
+<div class="article-cover" style="background-image:url(<%=post.cover%>);min-height: 14pc;">
+    <p class="article-headline-p">
+        <a href="<%- url_for(post.path) %>"><%=post.title%></a>
+    </p>
+</div>
+<article id="<%= post.layout %>" class="post white-box article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+    <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+            <%- post.content %>
+        </div>
+    </section>
+</article>

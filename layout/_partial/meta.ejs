@@ -3,37 +3,8 @@
 } else {
   var isPostList = false;
 } %>
-<section class='meta'>
-  <% if((!isPostList && post.music && post.music.enable) || (isPostList && post.music && post.music.enable == true)){ %>
-    <div class="aplayer" data-mini=true
-      data-mode="circulation" data-volume="0.7"
-      data-server="<%= post.music.server %>"
-      data-type="<%= post.music.type %>"
-      data-id="<%= post.music.id %>">
-    </div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
-  <% } %>
+<section class="meta">
   <div class="meta" id="header-meta">
-    <% if(isPostList){ %>
-      <h2 class="title">
-          <a href="<%- url_for(post.path) %>">
-              <% if(post.title){ %>
-                  <%= post.title %>
-              <% } else if (post.date) { %>
-                  <%= date(post.date, config.date_format) %>
-              <% } %>
-          </a>
-      </h2>
-    <% } else { %>
-      <% if(post.title){ %>
-          <h1 class="title"><%= post.title %></h1>
-      <% } else if (post.date) { %>
-          <h1 class="title"><%= date(post.date, config.date_format) %></h1>
-      <% } %>
-    <% } %>
-
     <% if(post.date){ %>
       <time class="time">
         <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
